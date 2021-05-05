@@ -1,16 +1,17 @@
 package com.kagency.kagencyapi.models;
 
+import java.util.Date;
+
 public class Role {
     private Integer roleId;
     private String roleName;
     private String roleDescription;
+    private Date createdDate;
 
-    private String createdDate;
-
-    public Role(Integer roleId, String roleName, String createdDate, String roleDescription) {
+    public Role(Integer roleId, String roleName, String roleDescription) {
         this.roleId = roleId;
         this.roleName = roleName;
-        this.createdDate = createdDate;
+        this.createdDate = new Date();
         this.roleDescription = roleDescription;
     }
 
@@ -41,11 +42,11 @@ public class Role {
         this.roleDescription = roleDescription;
     }
 
-    public String getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(String createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 }

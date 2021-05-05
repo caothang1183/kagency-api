@@ -1,9 +1,6 @@
 package com.kagency.kagencyapi.controllers;
 
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -11,12 +8,15 @@ import java.util.Map;
 @RequestMapping("/api/roles")
 public class RoleController {
 
-    @PatchMapping("/create")
-    public String createRole(@RequestBody Map<String, Object> map) {
-        String firstName = (String) map.get("first_name");
-        String lastName = (String) map.get("last_name");
-        String email = (String) map.get("email");
+    @RequestMapping(method = RequestMethod.GET)
+    public String allUser() {
+        return "Roles";
+    }
 
-        return firstName;
+    @RequestMapping(method = RequestMethod.POST)
+    public String createRole(@RequestBody Map<String, Object> map) {
+        String roleName = (String) map.get("rolet_name");
+        String roleDescription = (String) map.get("role_description");
+        return "insert";
     }
 }

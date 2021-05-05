@@ -1,9 +1,6 @@
 package com.kagency.kagencyapi.controllers;
 
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -11,13 +8,17 @@ import java.util.Map;
 @RequestMapping("/api/users")
 public class UserController {
 
-    @PatchMapping("/register")
-    public String registerUser(@RequestBody Map<String, Object> userMap) {
-        String firstName = (String) userMap.get("first_name");
-        String lastName = (String) userMap.get("last_name");
-        String email = (String) userMap.get("email");
-        String password = (String) userMap.get("password");
+    @RequestMapping(method = RequestMethod.GET)
+    public String allUser() {
+        return "Users";
+    }
 
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String registerUser(@RequestBody Map<String, Object> map) {
+        String firstName = (String) map.get("first_name");
+        String lastName = (String) map.get("last_name");
+        String email = (String) map.get("email");
+        String password = (String) map.get("password");
         return firstName;
     }
 }
