@@ -1,8 +1,12 @@
-package com.kagency.kagencyapi.models;
+package com.kagency.kagencyapi.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class Task {
+    @Id
     private Integer taskId;
     private String createdBy;
     private String assignedBy;

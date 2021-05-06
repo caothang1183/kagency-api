@@ -1,6 +1,9 @@
 package com.kagency.kagencyapi.controllers;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
@@ -15,7 +18,7 @@ public class RoleController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String createRole(@RequestBody Map<String, Object> map) {
-        String roleName = (String) map.get("rolet_name");
+        String roleName = (String) map.get("role_name");
         String roleDescription = (String) map.get("role_description");
         return "insert";
     }
